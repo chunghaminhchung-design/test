@@ -1,0 +1,100 @@
+  :root{
+    --bg1:#fff5f9;
+    --bg2:#ffe6f0;
+    --text:#d63384;
+  }
+  html,body{
+    height:100%;
+    margin:0;
+    background:linear-gradient(180deg,var(--bg1),var(--bg2));
+    overflow:hidden;
+    font-family:"Segoe UI", Roboto, Arial;
+    color:var(--text);
+  }
+
+  .stage{
+    position:relative;
+    width:100%;height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    padding-bottom:6vh;
+    box-sizing:border-box;
+  }
+
+  .bouquet-wrap{
+    position:relative;
+    width:300px;
+    animation:sway 4s ease-in-out infinite alternate;
+    alternate;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+  @keyframes sway{from{transform:translateY(0) rotate(-2deg)} to{transform:translateY(-6px) rotate(2deg)}}
+
+  .bouquet-img{
+display:block;
+  width:100%;
+  height:auto;
+  border-radius:12px;
+  object-fit:cover;
+  filter: drop-shadow(0 4px 16px rgba(0,0,0,0.25));
+  }
+
+  .shine{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    background: linear-gradient(120deg, transparent 10%, rgba(255,255,255,0.35) 45%, transparent 90%);
+    mix-blend-mode: screen;
+    transform: translateX(-120%);
+    animation: shineMove 6s linear infinite;
+  }
+  @keyframes shineMove{0%{transform:translateX(-120%)}100%{transform:translateX(140%)}}
+  .flower-fall{
+    position:fixed;
+    top:-30px;
+    font-size:20px;
+    pointer-events:none;
+    animation:fall 7s linear forwards;
+  }
+  @keyframes fall{
+    0%{transform:translateY(0) rotate(0deg);opacity:1}
+    100%{transform:translateY(110vh) rotate(360deg);opacity:0}
+  }
+
+  .messages{
+    position:fixed;
+    bottom:6vh;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    pointer-events:none;
+  }
+  .msg-box{
+    background:rgba(255,255,255,0.6);
+    backdrop-filter:blur(6px);
+    padding:14px 18px;
+    border-radius:12px;
+    text-align:center;
+    color:#c2185b;
+    font-weight:500;
+    font-size:18px;
+    box-shadow:0 4px 20px rgba(255,182,193,0.4);
+  }
+  .msg-line{opacity:0;transition:opacity .6s ease;}
+  .msg-line.show{opacity:1;}
+
+  .credit{
+    position:fixed;
+    bottom:18px;
+    left:50%;
+    transform:translateX(-50%);
+    color:#f48fb1;
+    font-size:13px;
+    text-align:center;
+  }
